@@ -83,11 +83,12 @@
 
   /* services — numbered rows */
   .num-list{margin-top:80px;border-top:1px solid var(--line)}
-  .num-row{display:grid;grid-template-columns:210px 1fr 300px;gap:40px;padding:64px 12px;border-bottom:1px solid var(--line);align-items:start;transition:background .35s}
-  .num-row .ncol .n{display:block}
-  .num-row .num-thumb{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:9px;margin-top:22px;border:1px solid var(--line);filter:saturate(.92)}
+  .num-row{padding:56px 12px 64px;border-bottom:1px solid var(--line);transition:background .35s}
   .num-row:hover{background:rgba(255,255,255,.02)}
-  .num-row .n{font-family:var(--serif);font-size:22px;color:var(--accent);font-style:italic}
+  .num-banner{display:block;width:100%;aspect-ratio:21/8;object-fit:cover;border-radius:12px;border:1px solid var(--line);filter:saturate(.92);margin-bottom:34px}
+  .num-head{display:flex;align-items:baseline;gap:20px;margin-bottom:14px}
+  .num-body{display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:start}
+  .num-row .n{font-family:var(--serif);font-size:22px;color:var(--accent);font-style:italic;flex:none}
   .num-row h3{font-family:var(--serif);font-size:27px;font-weight:600;margin-bottom:8px;line-height:1.35}
   [lang="ja"] .num-row h3{font-family:'Noto Serif JP',serif;font-size:23px}
   .num-row .c-en{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin-bottom:20px}
@@ -161,8 +162,8 @@
     .num-row{grid-template-columns:1fr;gap:20px}
     .hero .wrap{grid-template-columns:1fr;gap:36px}
     .hero-media{order:-1}
-    .num-row{grid-template-columns:1fr;gap:20px}
-    .num-row .num-thumb{max-width:280px}
+    .num-body{grid-template-columns:1fr;gap:22px}
+    .num-banner{aspect-ratio:16/9}
     .why-grid,.net-grid{grid-template-columns:1fr}
     .flow-grid{flex-direction:column}
     .flow-cell,.flow-cell:first-child,.flow-cell:last-child{clip-path:none;margin-left:0;padding:32px 28px;border-bottom:1px solid var(--line)}
@@ -227,46 +228,46 @@
     <p class="sub rv d2" data-i18n="svcLead">Japan-entry problems are usually described as regulation and language. Their essence is more universal — the same bottleneck that kills AI startups in every market: distribution. So we solve entry not by building new resources, but by connecting you to functional infrastructure that already exists.</p>
     <div class="num-list">
       <div class="num-row rv">
-        <div class="ncol"><div class="n">No. 01</div><img class="num-thumb" src="svc-entry.webp" alt="Modern Tokyo office at dusk" loading="lazy" width="720" height="480"></div>
-        <div>
-          <h3 data-i18n="s1h">Japan Market Entry</h3>
-          <div class="c-en" data-i18n="c1en">Strategy — Regulation — Presence</div>
+        <img class="num-banner" src="svc-entry.webp" alt="Modern Tokyo office at dusk near Tokyo Station" loading="lazy" width="720" height="480">
+        <div class="num-head"><span class="n">No. 01</span><h3 data-i18n="s1h">Japan Market Entry</h3></div>
+        <div class="c-en" data-i18n="c1en">Strategy — Regulation — Presence</div>
+        <div class="num-body">
           <p data-i18n="s1p">Company incorporation, administrative and judicial registrations, tax filings, corporate bank accounts — our specialist team handles the unavoidable paperwork of market entry as one package. You pay only actual costs; we charge no consulting fee. Under executives with decades of country-manager experience, we support everything end-to-end, from strategy to Japan-specific regulation — your first team on the ground, with office space adjacent to Tokyo Station and rent-free incubation for qualified partners.</p>
+          <ul>
+            <li data-i18n="s1b1">Strategy design &amp; market assessment</li>
+            <li data-i18n="s1b2">Incorporation, licensing, tax &amp; banking — one package</li>
+            <li data-i18n="s1b3">Actual costs only — no consulting fee</li>
+            <li data-i18n="s1b4">Tokyo Station office &amp; rent-free incubation</li>
+          </ul>
         </div>
-        <ul>
-          <li data-i18n="s1b1">Strategy design &amp; market assessment</li>
-          <li data-i18n="s1b2">Incorporation, licensing, tax &amp; banking — one package</li>
-          <li data-i18n="s1b3">Actual costs only — no consulting fee</li>
-          <li data-i18n="s1b4">Tokyo Station office &amp; rent-free incubation</li>
-        </ul>
       </div>
       <div class="num-row rv">
-        <div class="ncol"><div class="n">No. 02</div><img class="num-thumb" src="svc-localize.webp" alt="Global network converging on Japan" loading="lazy" width="720" height="480"></div>
-        <div>
-          <h3 data-i18n="s2h">Localization &amp; Distribution</h3>
-          <div class="c-en">Product — Culture — Reach</div>
+        <img class="num-banner" src="svc-localize.webp" alt="Global network converging on Japan" loading="lazy" width="720" height="480">
+        <div class="num-head"><span class="n">No. 02</span><h3 data-i18n="s2h">Localization &amp; Distribution</h3></div>
+        <div class="c-en">Product — Culture — Reach</div>
+        <div class="num-body">
           <p data-i18n="s2p">Localization, as we understand it, goes beyond translation. On our emotion-aware conversation engine we redesign the product itself for the cognitive and cultural context of Japanese users, then launch through a network of 100,000+ affiliates — no cold start, no advertising budget. We also introduce distribution partners for every phase, from R&amp;D collaborators to sales agencies.</p>
+          <ul>
+            <li data-i18n="s2b1">Product &amp; UX localization for Japan</li>
+            <li data-i18n="s2b2">Integration with Neksai's avatar &amp; AI stack</li>
+            <li data-i18n="s2b3">Launch via 100K+ affiliate network</li>
+            <li data-i18n="s2b4">Partner introductions — R&amp;D to sales agencies</li>
+          </ul>
         </div>
-        <ul>
-          <li data-i18n="s2b1">Product &amp; UX localization for Japan</li>
-          <li data-i18n="s2b2">Integration with Neksai's avatar &amp; AI stack</li>
-          <li data-i18n="s2b3">Launch via 100K+ affiliate network</li>
-          <li data-i18n="s2b4">Partner introductions — R&amp;D to sales agencies</li>
-        </ul>
       </div>
       <div class="num-row rv">
-        <div class="ncol"><div class="n">No. 03</div><img class="num-thumb" src="svc-medical.webp" alt="Medical imaging and neural data" loading="lazy" width="720" height="480"></div>
-        <div>
-          <h3 data-i18n="s3h">Medical &amp; Data Partnerships</h3>
-          <div class="c-en">Clinical Networks — Evidence — Supervision</div>
+        <img class="num-banner" src="svc-medical.webp" alt="Medical imaging and neural data" loading="lazy" width="720" height="480">
+        <div class="num-head"><span class="n">No. 03</span><h3 data-i18n="s3h">Medical &amp; Data Partnerships</h3></div>
+        <div class="c-en">Clinical Networks — Evidence — Supervision</div>
+        <div class="num-body">
           <p data-i18n="s3p">What ultimately determines healthcare-AI performance is the quality and quantity of data. In imaging, health checkups and clinical records, Japan holds medical data that stands out internationally — a rare foundation for R&amp;D in this field. For healthcare engagements we assign our affiliated company AI Mentalhealth Inc. and its psychiatrist network to your project — connecting you, with institutional backing, to joint research with medical institutions, clinical validation and privacy-conscious data collaboration.</p>
+          <ul>
+            <li data-i18n="s3b1">Joint research with medical institutions</li>
+            <li data-i18n="s3b2">Psychiatrist supervision &amp; risk design</li>
+            <li data-i18n="s3b3">Privacy-compliant data partnership schemes</li>
+            <li data-i18n="s3b4">Clinical validation &amp; evidence building</li>
+          </ul>
         </div>
-        <ul>
-          <li data-i18n="s3b1">Joint research with medical institutions</li>
-          <li data-i18n="s3b2">Psychiatrist supervision &amp; risk design</li>
-          <li data-i18n="s3b3">Privacy-compliant data partnership schemes</li>
-          <li data-i18n="s3b4">Clinical validation &amp; evidence building</li>
-        </ul>
       </div>
     </div>
   </div>
