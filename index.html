@@ -55,16 +55,20 @@
   .lang-switch button:not(.active):hover{color:var(--text)}
 
   /* hero */
-  .hero{position:relative;padding:220px 0 140px;overflow:hidden;background:
+  .hero{position:relative;padding:200px 0 120px;overflow:hidden;background:
     radial-gradient(ellipse 900px 600px at 80% 0%,rgba(200,183,138,.09),transparent 60%),
     radial-gradient(ellipse 700px 500px at 0% 100%,rgba(90,110,160,.08),transparent 60%),var(--bg)}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .hero-media{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+  .hero-media img{display:block;width:100%;height:auto}
+  .hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(7,7,7,.35),transparent 45%);pointer-events:none}
   .hero .kicker{display:inline-flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin-bottom:40px}
   .hero .kicker::before{content:"";width:40px;height:1px;background:var(--accent)}
   .hero h1{font-family:var(--serif);font-size:76px;line-height:1.12;font-weight:600;max-width:900px}
   [lang="ja"] .hero h1{font-family:'Noto Serif JP',serif;font-size:52px;line-height:1.4}
   .hero h1 em{font-style:normal;color:var(--accent)}
   [lang="ja"] .hero h1 em{font-style:normal}
-  .hero p{color:var(--muted);max-width:640px;margin:36px 0 52px;font-size:16.5px}
+  .hero p{color:var(--muted);margin:32px 0 44px;font-size:16px}
   .cta-row{display:flex;gap:18px;flex-wrap:wrap}
 
   /* stats — neksai bordered grid */
@@ -79,7 +83,9 @@
 
   /* services — numbered rows */
   .num-list{margin-top:80px;border-top:1px solid var(--line)}
-  .num-row{display:grid;grid-template-columns:140px 1fr 320px;gap:40px;padding:64px 12px;border-bottom:1px solid var(--line);align-items:start;transition:background .35s}
+  .num-row{display:grid;grid-template-columns:210px 1fr 300px;gap:40px;padding:64px 12px;border-bottom:1px solid var(--line);align-items:start;transition:background .35s}
+  .num-row .ncol .n{display:block}
+  .num-row .num-thumb{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:9px;margin-top:22px;border:1px solid var(--line);filter:saturate(.92)}
   .num-row:hover{background:rgba(255,255,255,.02)}
   .num-row .n{font-family:var(--serif);font-size:22px;color:var(--accent);font-style:italic}
   .num-row h3{font-family:var(--serif);font-size:27px;font-weight:600;margin-bottom:8px;line-height:1.35}
@@ -153,6 +159,10 @@
     .stats-grid{grid-template-columns:1fr 1fr}
     .stat{border-inline-start:none;border-top:1px solid var(--line)}
     .num-row{grid-template-columns:1fr;gap:20px}
+    .hero .wrap{grid-template-columns:1fr;gap:36px}
+    .hero-media{order:-1}
+    .num-row{grid-template-columns:1fr;gap:20px}
+    .num-row .num-thumb{max-width:280px}
     .why-grid,.net-grid{grid-template-columns:1fr}
     .flow-grid{flex-direction:column}
     .flow-cell,.flow-cell:first-child,.flow-cell:last-child{clip-path:none;margin-left:0;padding:32px 28px;border-bottom:1px solid var(--line)}
@@ -188,13 +198,16 @@
 
 <div class="hero">
   <div class="wrap">
-    <div class="kicker rv" data-i18n="kicker">Neksai Consulting</div>
-    <h1 class="rv d1" data-i18n="heroH1">Your gateway<br>to <em>Japan</em>.</h1>
-    <p class="rv d2" data-i18n="heroDesc">Your market-entry partner for global AI and healthcare companies. Peer-reviewed AI research, a distribution network of 100,000+ affiliates, and clinical ties to Japanese medical institutions — three assets held together within one group. In a market with some of the deepest medical data in the world, we support Land, Localize and Scale as one continuous function, without external dependencies.</p>
-    <div class="cta-row rv d3">
-      <a class="btn btn-solid" href="https://www.neksai.com/contact/"><span data-i18n="ctaTalk">Talk to Our Team</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a class="btn btn-ghost" href="#services"><span data-i18n="ctaSvc">Explore Services</span></a>
+    <div class="hero-text">
+      <div class="kicker rv" data-i18n="kicker">Neksai Consulting</div>
+      <h1 class="rv d1" data-i18n="heroH1">Your gateway<br>to <em>Japan</em>.</h1>
+      <p class="rv d2" data-i18n="heroDesc">Your market-entry partner for global AI and healthcare companies. Peer-reviewed AI research, a distribution network of 100,000+ affiliates, and clinical ties to Japanese medical institutions — three assets held together within one group. In a market with some of the deepest medical data in the world, we support Land, Localize and Scale as one continuous function, without external dependencies.</p>
+      <div class="cta-row rv d3">
+        <a class="btn btn-solid" href="https://www.neksai.com/contact/"><span data-i18n="ctaTalk">Talk to Our Team</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="#services"><span data-i18n="ctaSvc">Explore Services</span></a>
+      </div>
     </div>
+    <div class="hero-media rv d2"><img src="hero.webp" alt="Tokyo skyline at dusk framed by modern architecture" loading="eager" width="1200" height="800"></div>
   </div>
 </div>
 
@@ -214,7 +227,7 @@
     <p class="sub rv d2" data-i18n="svcLead">Japan-entry problems are usually described as regulation and language. Their essence is more universal — the same bottleneck that kills AI startups in every market: distribution. So we solve entry not by building new resources, but by connecting you to functional infrastructure that already exists.</p>
     <div class="num-list">
       <div class="num-row rv">
-        <div class="n">No. 01</div>
+        <div class="ncol"><div class="n">No. 01</div><img class="num-thumb" src="svc-entry.webp" alt="Modern Tokyo office at dusk" loading="lazy" width="720" height="480"></div>
         <div>
           <h3 data-i18n="s1h">Japan Market Entry</h3>
           <div class="c-en" data-i18n="c1en">Strategy — Regulation — Presence</div>
@@ -228,7 +241,7 @@
         </ul>
       </div>
       <div class="num-row rv">
-        <div class="n">No. 02</div>
+        <div class="ncol"><div class="n">No. 02</div><img class="num-thumb" src="svc-localize.webp" alt="Global network converging on Japan" loading="lazy" width="720" height="480"></div>
         <div>
           <h3 data-i18n="s2h">Localization &amp; Distribution</h3>
           <div class="c-en">Product — Culture — Reach</div>
@@ -242,7 +255,7 @@
         </ul>
       </div>
       <div class="num-row rv">
-        <div class="n">No. 03</div>
+        <div class="ncol"><div class="n">No. 03</div><img class="num-thumb" src="svc-medical.webp" alt="Medical imaging and neural data" loading="lazy" width="720" height="480"></div>
         <div>
           <h3 data-i18n="s3h">Medical &amp; Data Partnerships</h3>
           <div class="c-en">Clinical Networks — Evidence — Supervision</div>
