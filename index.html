@@ -31,8 +31,8 @@
   .btn{display:inline-flex;align-items:center;gap:12px;padding:17px 42px;font-weight:600;font-size:13.5px;letter-spacing:.08em;text-transform:uppercase;transition:.3s;border:1px solid var(--text)}
   .btn svg{width:14px;height:14px;transition:transform .3s;flex:none}
   .btn:hover svg{transform:translateX(5px)}
-  .btn-solid{background:var(--text);color:#0a0a0a}
-  .btn-solid:hover{background:var(--accent);border-color:var(--accent)}
+  .btn-solid{background:var(--accent);color:#0a0a0a;border-color:var(--accent);box-shadow:0 8px 26px rgba(200,183,138,.28)}
+  .btn-solid:hover{background:#dcc99a;border-color:#dcc99a;transform:translateY(-2px);box-shadow:0 12px 34px rgba(200,183,138,.4)}
   .btn-ghost{color:var(--text)}
   .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
 
@@ -62,7 +62,7 @@
   .hero .kicker::before{content:"";width:40px;height:1px;background:var(--accent)}
   .hero h1{font-family:var(--serif);font-size:76px;line-height:1.12;font-weight:600;max-width:900px}
   [lang="ja"] .hero h1{font-family:'Noto Serif JP',serif;font-size:52px;line-height:1.4}
-  .hero h1 em{font-style:italic;color:var(--accent)}
+  .hero h1 em{font-style:normal;color:var(--accent)}
   [lang="ja"] .hero h1 em{font-style:normal}
   .hero p{color:var(--muted);max-width:640px;margin:36px 0 52px;font-size:16.5px}
   .cta-row{display:flex;gap:18px;flex-wrap:wrap}
@@ -96,28 +96,41 @@
   .why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:80px}
   .why-cell{background:var(--bg-2);padding:56px 48px;transition:background .35s}
   .why-cell:hover{background:var(--panel)}
-  .why-cell .wl{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+  .why-cell .whead{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+  .why-cell .wic{width:40px;height:40px;flex:none;border:1px solid var(--accent-dim);border-radius:10px;display:flex;align-items:center;justify-content:center;background:var(--accent-dim)}
+  .why-cell .wic svg{width:20px;height:20px;stroke:var(--accent);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+  .why-cell .wl{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--accent)}
   .why-cell h3{font-family:var(--serif);font-size:24px;font-weight:600;margin-bottom:16px;line-height:1.4}
   [lang="ja"] .why-cell h3{font-family:'Noto Serif JP',serif;font-size:20px}
   .why-cell p{color:var(--muted);font-size:14px}
 
   /* network */
   .net-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:80px}
-  .net-card{border:1px solid var(--line);padding:40px 32px;transition:border-color .35s,transform .35s}
+  .net-card{border:1px solid var(--line);padding:36px 30px;transition:border-color .35s,transform .35s;display:flex;flex-direction:column;min-height:270px}
+  .net-card p{flex:1}
   .net-card:hover{border-color:var(--accent);transform:translateY(-5px)}
   .net-card .nc-l{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
   .net-card h4{font-family:var(--serif);font-size:19px;font-weight:600;margin-bottom:10px;line-height:1.4}
   .net-card p{font-size:12.5px;color:var(--muted)}
-  .net-card .tag{display:inline-block;margin-top:16px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent-dim);background:var(--accent-dim);padding:4px 12px}
+  .net-card .tag{align-self:flex-start;margin-top:16px;margin-bottom:18px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent-dim);background:var(--accent-dim);padding:4px 12px}
+  .net-card .visit{margin-top:auto;font-size:11.5px;font-weight:600;letter-spacing:.06em;color:var(--accent);display:inline-flex;align-items:center;gap:7px;border-top:1px solid var(--line);padding-top:16px}
+  .net-card .visit svg{width:12px;height:12px;transition:transform .25s}
+  a.net-card:hover .visit svg{transform:translateX(4px)}
+  .net-card .visit.muted{color:var(--muted)}
 
-  /* flow */
-  .flow-grid{display:grid;grid-template-columns:repeat(4,1fr);counter-reset:fs;border:1px solid var(--line);margin-top:80px}
-  .flow-cell{padding:48px 34px;border-inline-start:1px solid var(--line);transition:background .3s}
-  .flow-cell:first-child{border-inline-start:none}
-  .flow-cell:hover{background:rgba(255,255,255,.02)}
-  .flow-cell::before{counter-increment:fs;content:"0" counter(fs);font-family:var(--serif);font-size:26px;color:var(--accent);font-style:italic;display:block;margin-bottom:18px}
-  .flow-cell h4{font-size:15.5px;font-weight:600;margin-bottom:10px}
-  .flow-cell p{font-size:12.5px;color:var(--muted)}
+  /* flow — chevron steps */
+  .flow-grid{display:flex;counter-reset:fs;margin-top:80px;gap:0}
+  .flow-cell{flex:1;padding:44px 34px 44px 52px;background:var(--bg-2);position:relative;clip-path:polygon(0 0, calc(100% - 22px) 0, 100% 50%, calc(100% - 22px) 100%, 0 100%, 22px 50%);margin-left:-14px;transition:background .3s}
+  .flow-cell:first-child{margin-left:0;padding-left:38px;clip-path:polygon(0 0, calc(100% - 22px) 0, 100% 50%, calc(100% - 22px) 100%, 0 100%)}
+  .flow-cell:last-child{clip-path:polygon(0 0, 100% 0, 100% 100%, 0 100%, 22px 50%)}
+  .flow-cell:nth-child(1){background:#141414}
+  .flow-cell:nth-child(2){background:#161513}
+  .flow-cell:nth-child(3){background:#1a1712}
+  .flow-cell:nth-child(4){background:#221c12}
+  .flow-cell:hover{background:var(--panel)}
+  .flow-cell::before{counter-increment:fs;content:"0" counter(fs);font-family:var(--serif);font-size:24px;color:var(--accent);font-style:italic;display:block;margin-bottom:14px}
+  .flow-cell h4{font-size:15px;font-weight:600;margin-bottom:9px}
+  .flow-cell p{font-size:12px;color:var(--muted);line-height:1.7}
 
   /* cta */
   .cta-band{text-align:center;padding:160px 28px;background:
@@ -141,6 +154,8 @@
     .stat{border-inline-start:none;border-top:1px solid var(--line)}
     .num-row{grid-template-columns:1fr;gap:20px}
     .why-grid,.net-grid{grid-template-columns:1fr}
+    .flow-grid{flex-direction:column}
+    .flow-cell,.flow-cell:first-child,.flow-cell:last-child{clip-path:none;margin-left:0;padding:32px 28px;border-bottom:1px solid var(--line)}
     .flow-grid{grid-template-columns:1fr 1fr}
     nav{display:none}
   }
@@ -250,22 +265,22 @@
     <h2 class="rv d1" data-i18n="whyH2">Assets no consultancy<br>can replicate.</h2>
     <div class="why-grid">
       <div class="why-cell rv">
-        <div class="wl">Proprietary AI</div>
+        <div class="whead"><span class="wic"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 8-8"/><path d="M20 12a8 8 0 0 1-8 8"/><circle cx="12" cy="12" r="2.4" fill="currentColor" stroke="none"/></svg></span><span class="wl">Proprietary AI</span></div>
         <h3 data-i18n="w1h">Research validated at the world's top venue</h3>
         <p data-i18n="w1p">Angular Steering — real-time control of LLM emotional trajectories — presented as a NeurIPS 2025 Spotlight (top ~3% worldwide). Your product localizes onto an engine, not a wrapper.</p>
       </div>
       <div class="why-cell rv d1">
-        <div class="wl">Distribution Infrastructure</div>
+        <div class="whead"><span class="wic"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.4"/><circle cx="5" cy="18" r="2.4"/><circle cx="19" cy="18" r="2.4"/><path d="M12 7.4v3.6M12 11l-6 5M12 11l6 5"/></svg></span><span class="wl">Distribution Infrastructure</span></div>
         <h3 data-i18n="w2h">100,000+ affiliates from day one</h3>
         <p data-i18n="w2p">The bottleneck that kills market entry is reach. Our BuzzNet affiliate infrastructure gives partner products immediate distribution across Japan — without advertising spend.</p>
       </div>
       <div class="why-cell rv d2">
-        <div class="wl">Clinical Credibility</div>
+        <div class="whead"><span class="wic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/><path d="M9.5 11h1.7l.8-1.8 1.2 3 .8-1.2h1.5"/></svg></span><span class="wl">Clinical Credibility</span></div>
         <h3 data-i18n="w3h">A real medical network, not a slide</h3>
         <p data-i18n="w3p">When an engagement requires clinical depth, we assign our affiliated company AI Mentalhealth Inc. — practicing psychiatrists including a clinic of nine physicians supporting 800+ patients a year, with research published in leading international journals.</p>
       </div>
       <div class="why-cell rv d3">
-        <div class="wl">Operating Experience</div>
+        <div class="whead"><span class="wic"><svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11"/><path d="M9 20v-6h6v6"/></svg></span><span class="wl">Operating Experience</span></div>
         <h3 data-i18n="w4h">Executives who have done this before</h3>
         <p data-i18n="w4p">Our advisory bench includes leaders with decades of experience launching global companies in Japan — from retail giants to fintech — plus active roles in regional government business attraction.</p>
       </div>
@@ -278,30 +293,34 @@
     <span class="label rv">The Network</span>
     <h2 class="rv d1" data-i18n="netH2">One group.<br>Every capability in-house.</h2>
     <div class="net-grid">
-      <div class="net-card rv">
+      <a class="net-card rv" href="https://aiavatar.fun/" target="_blank" rel="noopener">
         <div class="nc-l">Japan — Deployment</div>
         <h4>AI Avatar Pte., Ltd</h4>
         <p data-i18n="n1p">Consumer avatar deployment and the Japan market launch hub.</p>
         <span class="tag" data-i18n="tagGrp">Group</span>
-      </div>
-      <div class="net-card rv d1">
+        <span class="visit"><span data-i18n="visit">Visit site</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="net-card rv d1" href="https://www.twomi.ai/" target="_blank" rel="noopener">
         <div class="nc-l">Singapore — Monetization</div>
         <h4>TWOMI Pte., Ltd</h4>
         <p data-i18n="n2p">Creator monetization and the 100K+ affiliate infrastructure.</p>
         <span class="tag" data-i18n="tagGrp">Group</span>
-      </div>
+        <span class="visit"><span data-i18n="visit">Visit site</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
       <div class="net-card rv d2">
         <div class="nc-l">Vietnam — R&amp;D</div>
         <h4>Torilab Co., Ltd</h4>
         <p data-i18n="n3p">Core deep-learning research — the NeurIPS 2025 Spotlight team.</p>
         <span class="tag" data-i18n="tagGrp">Group</span>
+        <span class="visit muted" data-i18n="visitSoon">Coming soon</span>
       </div>
-      <div class="net-card rv d3">
+      <a class="net-card rv d3" href="https://ai-mentalhealth.clinic/" target="_blank" rel="noopener">
         <div class="nc-l">Japan — Medical</div>
         <h4>AI Mentalhealth Inc.</h4>
         <p data-i18n="n4p">Psychiatrist-supervised mental-health AI and clinical partnerships — assignable to client engagements.</p>
         <span class="tag" data-i18n="tagJv">Affiliated Company</span>
-      </div>
+        <span class="visit"><span data-i18n="visit">Visit site</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
     </div>
   </div>
 </section>
@@ -363,7 +382,7 @@ var I18N = {
     s1b1:"戦略設計・市場性評価",s1b2:"法人設立・許認可・税務・口座開設の一括代行",s1b3:"実費のみ ─ コンサルティングフィー不要",s1b4:"東京駅隣接オフィス・レントフリーインキュベーション",c1en:"専門チームによる統合的支援",
     s2h:"ローカライゼーション&流通",
     s2p:"私たちの理解するローカライゼーションは、言語的翻訳の水準にとどまりません。感情認識対話エンジンを基盤として、日本の利用者の認知的・文化的文脈に即してプロダクトそのものを再設計し、その上で10万を超えるアフィリエイト網を経由して市場へ導入します。この方式においては、いわゆるコールドスタートの問題は生じず、広告投資も前提とされません。さらに、プロダクト開発局面における技術研究開発(R&D)の連携先から、市場投入を担う販売代理店に至るまで、各事業フェーズに対応した流通パートナーを紹介します。",
-    s2b1:"プロダクト・UXの日本向け再設計",s2b2:"Neksaiのアバター・AI基盤との統合",s2b3:"10万超アフィリエイト網でのローンチ",s2b4:"R&D連携先〜販売代理店のパートナー紹介",
+    s2b1:"プロダクト・UXの日本向け再設計",s2b2:"Neksaiのアバター・AI基盤との統合",visit:"サイトを見る",visitSoon:"準備中",s2b3:"10万超アフィリエイト網でのローンチ",s2b4:"R&D連携先〜販売代理店のパートナー紹介",
     s3h:"医療・データパートナーシップ",
     s3p:"ヘルスケアAIの性能を規定する要因を突き詰めれば、それはデータの質と量に帰着します。画像診断、健康診断、臨床記録といった領域において、日本は国際的にみても際立った医療データを保有しており、この分野の研究開発にとって稀有な基盤を成しています。医療領域の案件においては、関係会社である株式会社AI Mentalhealthおよびその精神科医ネットワークをプロジェクトに配置します。これにより、医療機関との共同研究、臨床的実証(クリニカル・バリデーション)、ならびにプライバシー保護に配慮したデータ連携へと、制度的裏づけをもって接続することが可能となります。",
     s3b1:"医療機関との共同研究",s3b2:"精神科医監修・リスク設計",s3b3:"プライバシーに配慮したデータ連携スキーム",s3b4:"臨床実証・エビデンス構築",
